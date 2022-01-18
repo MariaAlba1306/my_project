@@ -1,0 +1,14 @@
+@include media-md {
+  .mensajes {
+    visibility: hidden;
+    width: 0px;
+  }
+  .pro {
+    //por qué no respeta el width?
+    width: 100px;
+  }
+  .items {
+    //por qué no respeta el block?
+    display: block;
+  }
+}
