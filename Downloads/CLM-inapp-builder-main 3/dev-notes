@@ -1,0 +1,6 @@
+
+##Next steps (March 31th 2022)
+
+- template.html is unnecessarily complex. 
+- CSS in both template and main app file also contains lots of properties that are not being used.
+- Delete commented code (commented code = dead code unles a TODO is attached to it)

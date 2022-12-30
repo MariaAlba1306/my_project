@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Start reset page style */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --preview-width: 600px;
+        --preview-inapp: 273px;
+      }
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      Center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      #block-1-column-1-title1,
+      #block-1-column-1-paragraph,
+      #block-1-column-1-cta-link,
+      #block-1-column-1-cta-text,
+      #block-1-column-1-cta-image {
+        display: block;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      body {
+        line-height: 1;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      blockquote,
+      q {
+        quotes: none;
+      }
+
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .options {
+        margin-top: 25%;
+
+        text-align: right;
+        padding-bottom: 10px;
+      }
+      .options2 {
+        text-align: Left;
+        padding-bottom: 10px;
+      }
+      h2 {
+        font-size: 24px;
+        text-align: center;
+        padding: 10px;
+        font-family: "wallie-chuncky";
+        color: white;
+      }
+      select {
+        padding: 8px 0px 8px 0px;
+        width: 100px;
+        text-align: Center;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: white;
+        font-family: "wallie-chuncky";
+        font-size: 13px;
+        cursor: pointer;
+      }
+      /* End reset page style */
+
+      @font-face {
+        font-family: "wallie-fit";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "wallie-chuncky";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf")
+            format("truetype");
+      }
+
+      body {
+        background-color: #13c1ac;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-family: "wallie-fit";
+      }
+
+      .navbar {
+        background-color: #0f9989;
+        display: flex;
+        justify-content: Center;
+        align-items: Center;
+        padding: 10px;
+        border: 1px solid #000;
+        font-size: 50px;
+        color: #c1f5e6;
+        font-family: "wallie-chuncky";
+      }
+
+      .logo {
+        position: absolute;
+        left: -2px;
+        top: -10px;
+        width: 200px;
+        height: auto;
+      }
+
+      .flexbox-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: Center;
+        padding: 10px;
+        height: 90vh;
+      }
+      .form {
+        background-color: #c1f5e6;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        margin-bottom: 10px;
+      }
+      .bloque1 {
+        background-color: #c1f5e6;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        margin-bottom: 10px;
+      }
+      #bloque2 {
+        display: none;
+        background-color: #c1f5e6;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        margin-bottom: 10px;
+      }
+
+      .flexbox-item {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      label,
+      textarea {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      textarea {
+        padding: 10px;
+        max-width: 100%;
+        line-height: 1.5;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .htmloutput {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        padding: 10px;
+        background-color: #c1f5e6;
+      }
+
+      .flexbox-item-6 {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .button {
+        width: 100%;
+        padding: 8px 0px 8px 0px;
+        margin: 5px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #90a4ae;
+        font-family: "wallie-chuncky";
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .button2 {
+        width: 100%;
+        padding: 8px 0px 8px 0px;
+        margin: 5px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #90a4ae;
+        font-family: "wallie-chuncky";
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .inapp-preview {
+        height: 745px;
+        width: var(--preview-width);
+        background-color: ivory;
+        /* margin-Left: 20px; */
+      }
+      .desktop-preview {
+        height: 745px;
+        width: var(--preview-width);
+        background-color: ivory;
+        margin-left: 20px;
+      }
+      .mobile-preview {
+        height: 745px;
+        width: var(--preview-inapp);
+        background-color: ivory;
+      }
+
+      input {
+        padding: 5px;
+      }
+
+      .faker-phone {
+        position: relative;
+        background: #2d3436;
+        width: 300px;
+        height: 600px;
+        padding: 60px 15px 70px;
+        border-radius: 35px;
+        box-sizing: border-box;
+      }
+      .faker-phone::before {
+        content: "";
+        position: absolute;
+        top: 27px;
+        left: 50%;
+        margin-left: -25px;
+        width: 50px;
+        height: 6px;
+        border-radius: 3px;
+        background: #000;
+        opacity: 0.7;
+      }
+      .faker-phone::after {
+        content: "";
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        margin-left: -22px;
+        height: 40px;
+        width: 40px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(0, 0, 0, 0.8);
+        border-radius: 100%;
+      }
+      .faker-phone--screen {
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        overflow: auto;
+        position: relative;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <h1>Simple Email Template</h1>
+      <a href="index.html"><img class="logo" src="images/logo.png" /> </a>
+    </div>
+
+    <!-- Start form -->
+    <div class="flexbox-container">
+      <div>
+        <h2><b>Settings</b></h2>
+        <div class="options2">
+          <select name="user-type" id="commtype">
+            <option value="">Commercial</option>
+            <option value="">Functional</option>
+          </select>
+          <select name="user-type" id="user-type">
+            <option value="">Normal</option>
+            <option value="">Profesional</option>
+          </select>
+
+          <select name="user-type" id="aligned">
+            <option value="">Center</option>
+            <option value="">Left</option>
+          </select>
+        </div>
+        <div class="form">
+          <form id="main-form" onsubmit="onSubmitForm(event)">
+            <div class="flexbox-item flexbox-item-1">
+              <label for="image">Image</label>
+              <input
+                name="image"
+                id="block-1-column-1-image"
+                required
+                oninput="onFormFieldChanged()"
+                placeholder="Insert the Img URL"
+              />
+            </div>
+            <div class="flexbox-item flexbox-item-2">
+              <label>Title</label>
+
+              <input
+                name="title"
+                id="block-1-column-1-title1"
+                required
+                oninput="onFormFieldChanged()"
+                placeholder="Insert the title"
+              />
+            </div>
+            <div class="flexbox-item flexbox-item-3">
+              <label>Paragraph</label>
+
+              <input
+                name="paragraph"
+                id="block-1-column-1-paragraph"
+                required
+                oninput="onFormFieldChanged()"
+                placeholder="Insert the paragraph text"
+              />
+            </div>
+            <div class="flexbox-item flexbox-item-4">
+              <label>CTA</label>
+
+              <input
+                name="CTA"
+                id="block-1-column-1-cta-text"
+                required
+                oninput="onFormFieldChanged()"
+                placeholder="Insert the CTA text"
+              />
+              <input
+                name="CTA"
+                id="block-1-column-1-cta-link"
+                required
+                oninput="onFormFieldChanged()"
+                placeholder="Insert the CTA URL"
+              />
+            </div>
+            <div class="flexbox-item flexbox-item-6">
+              <button class="button" type="submit">Submit</button>
+              <button class="button" type="reset" onclick="onReset(event)">
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="htmloutput">
+          <label for="story">Copy your HTML code here:</label>
+          <textarea id="story" name="story" rows="5" cols="33"> </textarea>
+        </div>
+      </div>
+      <div>
+        <div class="options">
+          <select name="Device" id="selector">
+            <option value="">Desktop</option>
+            <option value="">Mobile</option>
+          </select>
+        </div>
+        <div id="faker-phone">
+          <div id="faker-phone--screen">
+            <iframe class="inapp-preview" id="inapp-preview"
+              >Inapp preview</iframe
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End form -->
+  </body>
+
+  <script>
+    let mockUrl = "http://placekitten.com/450/390";
+    let blocknumber = 1;
+    var originalTemplate = "";
+    var templateValues = {
+      title: "Title",
+      description: "Description",
+      cta1: "cta1",
+      imageLink: "imageLink",
+      deeplink: "deepLink",
+      aligned: "Center",
+    };
+    var processedTemplate = "";
+    var text = "Center";
+    var footerNormal =
+      "{{content_blocks.${EMAIL_UNSUBSCRIBE}}}<br>{{content_blocks.${EMAIL_FOOTER}}}";
+    var footer =
+      "{{content_blocks.${EMAIL_UNSUBSCRIBE}}}<br>{{content_blocks.${EMAIL_FOOTER}}}";
+    var footerPRO =
+      "{{content_blocks.${EMAIL_UNSUBSCRIBE}}}<br>{{content_blocks.${EMAIL_FOOTER_PRO}}}";
+    var commtype =
+      "{% if {{custom_attribute.${promo_push}}} == false or {{custom_attribute.${promo_push}}} == blank %}{% abort_message ('commercial comm')%}{% else %}{% endif %}";
+
+    window.onload = function () {
+      loadTemplate("./simple-template.html", function (sourceCode) {
+        originalTemplate = sourceCode;
+        injectTemplateIntoIframe(sourceCode);
+      });
+
+      //User type selector
+      var select = document.querySelector("#user-type"),
+        input = document.querySelector('input[type="button"]');
+      select.addEventListener("change", function () {
+        var e = document.getElementById("user-type");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        if (text == "Normal") {
+          loadTemplate("./simple-template.html", function (sourceCode) {
+            originalTemplate = sourceCode;
+            injectTemplateIntoIframe(sourceCode);
+            onFormFieldChanged();
+            footer = footerNormal;
+          });
+        } else {
+          loadTemplate("./simple-template pro.html", function (sourceCode) {
+            originalTemplate = sourceCode;
+            injectTemplateIntoIframe(sourceCode);
+            onFormFieldChanged();
+            footer = footerPRO;
+          });
+        }
+      });
+
+      //Mobile/desktop view type selector
+      var select = document.querySelector("#selector"),
+        input = document.querySelector('input[type="button"]');
+      select.addEventListener("change", function () {
+        var e = document.getElementById("selector");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        if (text == "Mobile") {
+          document.getElementById("inapp-preview").className = "mobile-preview";
+          document.getElementById("faker-phone").className = "faker-phone";
+          document.getElementById("faker-phone--screen").className =
+            "faker-phone--screen";
+        } else {
+          document.getElementById("inapp-preview").className =
+            "desktop-preview";
+          document.getElementById("faker-phone").className = "hi";
+          document.getElementById("faker-phone--screen").className = "hi";
+        }
+      });
+
+      //Text align type selector
+      var select = document.querySelector("#aligned"),
+        input = document.querySelector('input[type="button"]');
+      select.addEventListener("change", function () {
+        var e = document.getElementById("aligned");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        if (text == "Center") {
+          text = "Center";
+        } else {
+          text = "Left";
+        }
+        onFormFieldChanged();
+      });
+      //Comm type selector
+      var select = document.querySelector("#commtype"),
+        input = document.querySelector('input[type="button"]');
+      select.addEventListener("change", function () {
+        var e = document.getElementById("commtype");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        if (text == "Commercial") {
+          commtype =
+            "{% if {{custom_attribute.${promo_push}}} == false or {{custom_attribute.${promo_push}}} == blank %}{% abort_message ('commercial comm')%}{% else %}{% endif %}";
+        } else {
+          alert("You're changing to a Functional Campaign");
+          commtype = "";
+        }
+        onFormFieldChanged();
+      });
+    };
+    function injectTemplateIntoIframe(sourceCode) {
+      if (sourceCode.length == 0) {
+        return;
+      }
+      var targetIframe =
+        document.getElementById("inapp-preview").contentWindow.document;
+      targetIframe.open();
+      targetIframe.write(sourceCode);
+      targetIframe.close();
+    }
+
+    function loadTemplate(sourceFile, onDataLoaded) {
+      var client = new XMLHttpRequest();
+      client.open("GET", `./${sourceFile}`);
+      client.onreadystatechange = function () {
+        onDataLoaded(client.responseText);
+      };
+      client.send();
+    }
+
+    function onFormFieldChanged() {
+      var select = document.querySelector("#aligned"),
+        input = document.querySelector('input[type="button"]');
+
+      var e = document.getElementById("aligned");
+      var value = e.value;
+      var text = e.options[e.selectedIndex].text;
+      if (text == "Center") {
+        text = "Center";
+      } else {
+        text = "Left";
+      }
+
+      templateValues = {
+        templateTitle1: readFormField("block-1-column-1-title1"),
+        description: readFormField("block-1-column-1-paragraph"),
+        cta1: readFormField("block-1-column-1-cta-text"),
+        imageLink: readFormUrlField("block-1-column-1-image"),
+        deeplink: readFormField("block-1-column-1-cta-link"),
+        aligned: text,
+        footer: footer,
+        commtype: commtype,
+      };
+
+      render();
+      console.log(templateValues);
+    }
+
+    function readFormField(fieldName) {
+      let value = document.getElementById(fieldName).value;
+      if (value == null || value.toString().length == 0) {
+        return "{{" + fieldName + "}}";
+      }
+      return value;
+    }
+
+    function readFormUrlField(fieldName) {
+      let value = readFormField(fieldName);
+      try {
+        let url = new URL(value);
+        return value;
+      } catch (_) {
+        return mockUrl;
+      }
+    }
+
+    function render() {
+      var template = Handlebars.compile(originalTemplate);
+      processedTemplate = template(templateValues);
+      injectTemplateIntoIframe(processedTemplate);
+    }
+
+    function onSubmitForm(event) {
+      event.preventDefault();
+      onFormFieldChanged(); //ensure the values from the fields are loaded before printing
+      let targetDiv = document.getElementById("story");
+      targetDiv.innerHTML = processedTemplate;
+      return false;
+    }
+
+    function onReset(event) {
+      templateValues = {};
+      let targetDiv = document.getElementById("story");
+      targetDiv.innerHTML = "";
+      let form = document.getElementById("main-form");
+      form.reset();
+      onFormFieldChanged();
+    }
+  </script>
+</html>

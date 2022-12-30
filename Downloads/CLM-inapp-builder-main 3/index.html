@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Start reset page style */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --preview-width: 25vw;
+      }
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      #block-1-column-1-title1,
+      #block-1-column-1-paragraph,
+      #block-1-column-1-cta-link,
+      #block-1-column-1-cta-text,
+      #block-1-column-1-cta-image {
+        display: block;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      body {
+        line-height: 1;
+      }
+      h1 {
+        font-size: 6vw;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      blockquote,
+      q {
+        quotes: none;
+      }
+
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .muñeco {
+        width: 400px;
+        align-items: right;
+      }
+
+      /* End reset page style */
+
+      @font-face {
+        font-family: "wallie-fit";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "wallie-chuncky";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf")
+            format("truetype");
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-family: "wallie-fit";
+      }
+
+      .navbar {
+        /* background-color: #0f9989; */
+        /* display: flex; */
+        justify-content: center;
+        background-color: #13c1ac;
+        align-items: center;
+        height: 20%;
+        padding-top: 90px;
+        padding-left: 50px;
+        background-image: url("https://webpublic.s3.eu-west-1.amazonaws.com/campaigns/CLM_illustrations/COMMONS/pop-maintenance.png");
+        background-repeat: no-repeat;
+        background-size: 25vw;
+        background-position: right;
+        border: 1px solid white;
+        font-size: 100px;
+        color: white;
+        font-family: "wallie-chuncky";
+      }
+
+      .logo {
+        position: absolute;
+        left: 0px;
+        top: 10px;
+        width: 200px;
+        height: auto;
+      }
+
+      .flexbox-container {
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+      }
+      .title {
+        font-size: 3vw;
+        font-family: "wallie-chuncky";
+        padding: 20px;
+        text-align: center;
+        border: 1px solid grey;
+        margin: 40px;
+        background-color: #f1f1f1;
+      }
+      h3 {
+        font-size: 2vw;
+        font-family: "wallie-chuncky";
+        padding: 10px;
+      }
+      li,
+      p {
+        font-size: 1.5vw;
+        font-family: "wallie-fit";
+        text-align: left !important;
+      }
+      label,
+      textarea {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      textarea {
+        padding: 10px;
+        max-width: 100%;
+        line-height: 1.5;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .button {
+        /* width: 100%; */
+        padding: 8px 0px 8px 0px;
+        margin: 5px;
+        border-radius: 10px;
+        border: 4px solid #13c1ac;
+        color: #13c1ac;
+        font-family: "wallie-chuncky";
+        font-size: 1.5vw;
+        cursor: pointer;
+      }
+
+      .button2 {
+        /* width: 100%; */
+        padding: 8px 40px 8px 40px;
+        margin: 15px;
+        border-radius: 30px;
+        border: 4px solid #13c1ac;
+        color: #ffffff;
+        font-family: "wallie-chuncky";
+        background-color: #13c1ac;
+        font-size: 1.5vw;
+        cursor: pointer;
+      }
+
+      .inapp-preview {
+        padding-top: 200px;
+        height: calc(var(--preview-width) * 1.77);
+        width: var(--preview-width);
+        background-color: ivory;
+        margin-left: 20px;
+      }
+
+      input {
+        padding: 5px;
+      }
+      .subtitle {
+        font-size: 3vw;
+        font-family: "wallie-fit";
+      }
+      /*Cards */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Float four columns side by side */
+      .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+      }
+
+      /* Remove extra left and right margins, due to padding */
+      .row {
+        margin: 0 -5px;
+      }
+
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive columns */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #ffffff;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <img class="logo" src="images/Wallapop_Negative_Logotype.png" />
+
+      <h1>Templates Builder</h1>
+      <p class="subtitle">CRM team</p>
+      <div>
+        <select class="button" name="" id="selector">
+          <option value="all">All templates</option>
+          <option value="email">Email</option>
+          <option value="inapp">Inapp</option>
+           <option value="name">Name builder</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Start form -->
+
+    <div class="flexbox-container" id="email">
+      <h1 class="title">Email templates</h1>
+
+      <div class="row">
+        <div class="column">
+          <div class="card">
+             <div style="height:30vw">
+            <img src="/images/SimpleEmailScreenshot.png" width="100%" />
+            </div>
+            <h3>Simple 1 column</h3>
+            <p>
+              <li>Image</li>
+              <li>Title</li>
+              <li>Paragraph</li>
+              <li>Button</li>
+            </p>
+            <a href="email-builder-simple-template.html"
+              ><button class="button2">IR</button></a
+            >
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <div style="height:30vw">
+            <img src="/images/SimpleEmail2Screenshot.gif" width="100%" />
+            </div>
+            <h3>2 columns blocks</h3>
+            <p>
+              <li>Title</li>
+              <li>Paragraph</li>
+              <li>2 columns: 1 to 4 rows</li>
+              <li>Button</li>
+            </p>
+            <a href="email-builder-2columns-template.html"
+              ><button class="button2">IR</button></a
+            >
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <!-- <h3>Card 3</h3>
+            <p>Some text</p>
+            <p>Some text</p> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <!-- <h3>Card 4</h3>
+            <p>Some text</p>
+            <p>Some text</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End form -->
+    <div class="flexbox-container" id="inapp">
+      <h1 class="title">Inapp templates</h1>
+
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="/images/SimpleInappScreenshot.png" width="100%" />
+            <h3>Simple 1 CTA</h3>
+            <p>
+              <li>Image</li>
+              <li>Title</li>
+              <li>Paragraph</li>
+              <li>Button</li>
+            </p>
+            <a href="inapp-builder-simple-template.html"
+              ><button class="button2">IR</button></a
+            >
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <!-- <h3>Card 2</h3>
+            <p>Some text</p>
+            <p>Some text</p> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <!-- <h3>Card 3</h3>
+            <p>Some text</p>
+            <p>Some text</p> -->
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="card">
+            <!-- <h3>Card 4</h3>
+            <p>Some text</p>
+            <p>Some text</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flexbox-container" id="name">
+      <h1 class="title">Name builder</h1>
+
+      <iframe
+        width="100%"
+        height="550px"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTe8BGAYODs8DBCt3XQtNI4O4MX_bZMF4Bn6ogvZxhdHSRU1tKnvTxqgHc6sxuH999WreROv1AqZ3GR/pubhtml?widget=true&amp;headers=false"
+      ></iframe>
+    </div>
+  </body>
+
+  <script>
+    var select = document.querySelector("#selector"),
+      input = document.querySelector('input[type="button"]');
+    select.addEventListener("change", function () {
+      var e = document.getElementById("selector");
+      var value = e.value;
+      var text = e.options[e.selectedIndex].text;
+      console.log(text);
+      if (text == "Email") {
+        document.getElementById("email").style.display = "block";
+        document.getElementById("inapp").style.display = "none";
+         document.getElementById("name").style.display = "none";
+      } else if (text == "All templates") {
+        document.getElementById("email").style.display = "block";
+        document.getElementById("inapp").style.display = "block";
+         document.getElementById("name").style.display = "none";
+
+      }
+      else if (text == "Name builder") {
+        document.getElementById("email").style.display = "none";
+        document.getElementById("inapp").style.display = "none";
+         document.getElementById("name").style.display = "block";
+      } else {
+        document.getElementById("inapp").style.display = "block";
+        document.getElementById("email").style.display = "none";
+         document.getElementById("name").style.display = "none";
+      }
+    });
+  </script>
+</html>

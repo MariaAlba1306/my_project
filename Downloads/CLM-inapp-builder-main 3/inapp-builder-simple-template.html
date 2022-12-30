@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Start reset page style */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --preview-width: 25vw;
+      }
+
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      body {
+        line-height: 1;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      blockquote,
+      q {
+        quotes: none;
+      }
+
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      /* End reset page style */
+
+      @font-face {
+        font-family: "wallie-fit";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf")
+            format("truetype");
+      }
+
+      @font-face {
+        font-family: "wallie-chuncky";
+        src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2")
+            format("woff2"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff")
+            format("woff"),
+          url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf")
+            format("truetype");
+      }
+
+      body {
+        background-color: #13c1ac;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-family: "wallie-fit";
+      }
+
+      .navbar {
+        background-color: #0f9989;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #000;
+        font-size: 50px;
+        color: #c1f5e6;
+        font-family: "wallie-chuncky";
+      }
+
+      .logo {
+        position: absolute;
+        left: -2px;
+        top: -10px;
+        width: 200px;
+        height: auto;
+      }
+
+      .flexbox-container {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 20px;
+        margin-right: 20px;
+        align-items: center;
+        padding: 10px;
+        height: 90vh;
+      }
+
+      .form {
+        background-color: #c1f5e6;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        margin-bottom: 10px;
+        margin-right: 20px;
+        min-width: 350px;
+      }
+
+      .flexbox-item {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .flexbox-item-0 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      label,
+      textarea {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+
+      textarea {
+        padding: 10px;
+        width: 400px;
+        height: 350px;
+        max-width: 100%;
+        line-height: 1.5;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+      }
+
+      label {
+        margin-bottom: 10px;
+        margin-right: 30px;
+        vertical-align: middle;
+      }
+
+      label.checkboxes {
+        margin-bottom: 0px;
+      }
+
+      .htmloutput {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+        padding: 10px;
+        background-color: #c1f5e6;
+      }
+
+      .story {
+        display: flex;
+      }
+
+      .flexbox-item-6 {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .button {
+        width: 100%;
+        padding: 8px 0px 8px 0px;
+        margin: 5px;
+        border-radius: 10px;
+        background-color: #90a4ae;
+        font-family: "wallie-chuncky";
+        font-size: 13px;
+        cursor: pointer;
+      }
+
+      .inapp-preview {
+        height: calc(var(--preview-width) * 1.77);
+        width: var(--preview-width);
+        background-color: ivory;
+        margin-left: 20px;
+      }
+
+      input {
+        padding: 5px;
+      }
+
+      input[type="radio"] {
+        vertical-align: middle;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <h1>Simple Inapp Message Template</h1>
+      <a href="index.html"><img class="logo" src="images/logo.png" /> </a>
+    </div>
+
+    <!-- Start form -->
+    <div class="outer">
+      <div class="flexbox-container">
+        <div>
+          <div class="form">
+            <form
+              id="main-form"
+              name="main-form"
+              onsubmit="onSubmitForm(event)"
+            >
+              <div class="flexbox-item flexbox-item-0">
+                <input type="checkbox" id="1button" />
+                <label class="checkboxes" for="1button">1 button</label><br />
+                <input type="checkbox" id="2buttons" />
+                <label class="checkboxes" for="2buttons">2 buttons</label><br />
+              </div>
+              <div class="flexbox-item flexbox-item-4" id="Image_Group">
+                <label for="image">Image link</label>
+                <input
+                  class="entry_fields"
+                  name="image"
+                  id="image"
+                  required
+                  oninput="onFormFieldChanged()"
+                  placeholder="Insert the Img URL"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-1" id="Title_Group">
+                <label for="title">Title</label>
+                <input
+                  class="entry_fields"
+                  name="title"
+                  id="title"
+                  required
+                  oninput="onFormFieldChanged()"
+                  placeholder="Insert the title"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-2" id="Description_Group">
+                <label for="description">Paragraph</label>
+                <input
+                  class="entry_fields"
+                  name="description"
+                  id="description"
+                  required
+                  oninput="onFormFieldChanged()"
+                  placeholder="Insert the paragraph text"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-3" id="CTA1_Group">
+                <label for="CTA 1">Button 1 (Green button)</label>
+                <input
+                  class="entry_fields"
+                  name="CTA 1"
+                  id="CTA-1"
+                  required
+                  oninput="onFormFieldChanged()"
+                  placeholder="Insert the text for CTA 1"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-3bis" id="CTA2_Group">
+                <label for="CTA 2">Button 2 (White button)</label>
+                <input
+                  class="entry_fields"
+                  name="CTA 2"
+                  id="CTA-2"
+                  oninput="onFormFieldChanged()"
+                  placeholder="Insert the text for CTA 2"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-5" id="Deeplink1_Group">
+                <div style="margin-bottom: 10px">
+                  <label for="deeplink1">Deeplink 1 (Green button)</label>
+                  <input
+                    type="checkbox"
+                    id="deeplink1closing"
+                    style="margin: 0px 10px 0px 0px"
+                  /><label for="deeplink1closing">close inapp</label>
+                </div>
+                <input
+                  class="entry_fields"
+                  name="deeplink1"
+                  id="deeplink1"
+                  value="appboy://close"
+                  required
+                  oninput="onFormFieldChanged()"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-5-bis" id="Deeplink2_Group">
+                <div style="margin-bottom: 10px">
+                  <label for="deeplink2">Deeplink 2 (White button)</label>
+                  <input
+                    type="checkbox"
+                    id="deeplink2closing"
+                    style="margin: 0px 10px 0px 0px"
+                  /><label for="deeplink2closing">close inapp</label>
+                </div>
+                <input
+                  class="entry_fields"
+                  name="deeplink2"
+                  id="deeplink2"
+                  value="appboy://close"
+                  required
+                  oninput="onFormFieldChanged()"
+                />
+              </div>
+              <div class="flexbox-item flexbox-item-6">
+                <button class="button" type="submit">Submit</button>
+                <button class="button" type="reset" onclick="onReset(event)">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="htmloutput">
+          <label for="story" class="story">Copy your HTML code here:</label>
+          <textarea id="story" name="story" rows="5" cols="33"> </textarea>
+        </div>
+        <iframe class="inapp-preview" id="inapp-preview">Inapp preview</iframe>
+      </div>
+    </div>
+    <!-- End form -->
+  </body>
+
+  <script>
+    const CTA2 = document.getElementById("CTA2_Group");
+    const DEEPLINK2 = document.getElementById("Deeplink2_Group");
+    const DEEPLINK1 = document.getElementById("Deeplink1_Group");
+    const deeplink1input = document.getElementById("deeplink1");
+    const deeplink2input = document.getElementById("deeplink2");
+    const radioButtonOne = document.getElementById("1button");
+    const radioButtonTwo = document.getElementById("2buttons");
+    const htmlOutputTextArea = document.getElementById("story");
+    const form = document.getElementById("main-form");
+    const ClosingDeeplinkOne = document.getElementById("deeplink1closing");
+    const ClosingDeeplinkTwo = document.getElementById("deeplink2closing");
+
+    const template1 = {
+      id: "templateOneButton",
+      fileName: "one-button-template.html",
+      templateValues: {
+        title: "Title",
+        description: "Description",
+        cta1: "cta1",
+        imageLink: "imageLink",
+        deeplink1: "deepLink1",
+        deeplink1Toggle: "deeplink1closing",
+      },
+      originalTemplate: "",
+      processedTemplate: "",
+    };
+
+    const template2 = {
+      id: "templateTwoButtons",
+      fileName: "two-button-template.html",
+      templateValues: {
+        title: "Title",
+        description: "Description",
+        cta1: "cta1",
+        cta2: "cta2",
+        imageLink: "imageLink",
+        deeplink1: "deepLink1",
+        deeplink1Toggle: "deeplink1closing",
+        deeplink2Toggle: "deeplink2closing",
+        deeplink2: "deepLink2",
+      },
+      originalTemplate: "",
+      processedTemplate: "",
+    };
+
+    const templateArr = [template2, template1];
+
+    const mockUrl = "";
+
+    // window.onload executes the function inside when the whole page is loaded
+    window.onload = function () {
+      // initially template one is loaded. so we want to hide the CTA2
+      CTA2.style.display = "none";
+      DEEPLINK2.style.display = "none";
+      radioButtonOne.checked = true;
+      loadTemplate(template2, function (template) {
+        currentSelectedTemplate = template1;
+        injectTemplateIntoIframe(currentSelectedTemplate.originalTemplate);
+      });
+      loadTemplate(template1, function (template) {
+        currentSelectedTemplate = template1;
+        injectTemplateIntoIframe(currentSelectedTemplate.originalTemplate);
+      });
+    };
+
+    function selectTemplate(template) {
+      currentSelectedTemplate = template;
+      render();
+    }
+
+    /**
+     * This method injects the sourceCode into the iFrame, The iFrame is the template preview
+     */
+    function injectTemplateIntoIframe(sourceCode) {
+      if (sourceCode.length == 0) {
+        return;
+      }
+      var targetIframe =
+        document.getElementById("inapp-preview").contentWindow.document;
+      targetIframe.open();
+      targetIframe.write(sourceCode);
+      targetIframe.close();
+    }
+    /**
+
+     */
+    function loadTemplate(template, onTemplateLoaded) {
+      const sourceFile = template.fileName;
+
+      var client = new XMLHttpRequest();
+      client.open("GET", `./${sourceFile}`);
+      client.onreadystatechange = function () {
+        template.originalTemplate = client.responseText;
+        onTemplateLoaded(template);
+      };
+      client.send();
+    }
+
+    function onFormFieldChanged() {
+      //TODO templateValues as a global variable does not exist anymore, you should save this into the
+      // currentSelectedTemplate.templateValues. Also bear in mind that the cta2 field does not always exist
+      // so you need to conditionally load it somehow.
+      currentSelectedTemplate.templateValues =
+        currentSelectedTemplate.id === "templateTwoButtons"
+          ? {
+              templateTitle: readFormField("title"),
+              description: readFormField("description"),
+              cta1: readFormField("CTA-1"),
+              cta2: readFormField("CTA-2"),
+              imageLink: readFormField("image"),
+              deeplink1: readFormField("deeplink1"),
+              deeplink1Toggle: computeDeepLink("deeplink1closing", 0),
+              deeplink2: readFormField("deeplink2"),
+              deeplink2Toggle: computeDeepLink("deeplink2closing", 1),
+            }
+          : {
+              templateTitle: readFormField("title"),
+              description: readFormField("description"),
+              cta1: readFormField("CTA-1"),
+              imageLink: readFormField("image"),
+              deeplink1: readFormField("deeplink1"),
+              deeplink1Toggle: computeDeepLink("deeplink1closing", 0),
+            };
+      render();
+    }
+
+    function computeDeepLink(name, trackingnumber) {
+      if (document.getElementById(name).checked) {
+        return `appboyBridge.logClick(${trackingnumber});appboyBridge.closeMessage()`;
+      }
+      return `appboyBridge.logClick(${trackingnumber})`;
+    }
+
+    function readFormField(fieldName) {
+      const value = document.getElementById(fieldName).value;
+      if (fieldName === deeplink1) {
+      }
+      if (value == null || value.toString().length == 0) {
+        return "{{" + fieldName + "}}";
+      }
+      return value;
+    }
+
+    function readFormUrlField(fieldName) {
+      const value = readFormField(fieldName);
+      try {
+        const url = new URL(value);
+        return value;
+      } catch (_) {
+        return mockUrl;
+      }
+    }
+
+    function render() {
+      const template = Handlebars.compile(
+        currentSelectedTemplate.originalTemplate
+      );
+      processedTemplate = template(currentSelectedTemplate.templateValues);
+      currentSelectedTemplate.processedTemplate = template(
+        currentSelectedTemplate.templateValues
+      );
+
+      injectTemplateIntoIframe(processedTemplate);
+    }
+
+    function onSubmitForm(event) {
+      event.preventDefault();
+      onFormFieldChanged(); //ensure the values from the fields are loaded before printing
+      htmlOutputTextArea.innerHTML = currentSelectedTemplate.processedTemplate;
+      return false;
+    }
+
+    function onReset() {
+      deeplink1input.disabled = false;
+      deeplink2input.disabled = false;
+      form.reset();
+      onFormFieldChanged();
+      htmlOutputTextArea.innerHTML = "";
+    }
+
+    radioButtonOne.addEventListener("click", () => {
+      CTA2.style.display = "none";
+      DEEPLINK2.style.display = "none";
+      selectTemplate(template1);
+      onReset();
+      radioButtonOne.checked = true;
+      radioButtonTwo.checked = false;
+    });
+
+    radioButtonTwo.addEventListener("click", () => {
+      CTA2.style.display = "flex";
+      DEEPLINK2.style.display = "flex";
+      selectTemplate(template2);
+      onReset();
+      radioButtonOne.checked = false;
+      radioButtonTwo.checked = true;
+    });
+
+    ClosingDeeplinkOne.addEventListener("click", (event) => {
+      if (ClosingDeeplinkOne.checked) {
+        deeplink1input.disabled = true;
+      } else {
+        deeplink1input.disabled = false;
+      }
+    });
+
+    ClosingDeeplinkTwo.addEventListener("click", () => {
+      if (ClosingDeeplinkTwo.checked) {
+        deeplink2input.disabled = true;
+      } else {
+        deeplink2input.disabled = false;
+      }
+    });
+  </script>
+</html>

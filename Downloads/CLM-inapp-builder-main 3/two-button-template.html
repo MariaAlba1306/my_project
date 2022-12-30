@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+  </head>
+  <style>
+    @font-face {
+      font-family: "wallie-fit";
+      src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2")
+          format("woff2"),
+        url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff")
+          format("woff"),
+        url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf")
+          format("truetype");
+    }
+    @font-face {
+      font-family: "wallie-chuncky";
+      src: url("https://d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2")
+          format("woff2"),
+        url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff")
+          format("woff"),
+        url("//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf")
+          format("truetype");
+      font-weight: bold;
+    }
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      font-family: wallie-fit, Arial, Sans-Serif;
+    }
+    body {
+      color: #000000;
+      text-align: center;
+      margin: 0px;
+    }
+    a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    footer {
+      background-color: #ffffff;
+      border-radius: 0 0 6px 6px;
+    }
+    .outer {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      overflow: auto;
+    }
+    .modal {
+      z-index: 0;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      position: relative;
+      margin: 0px 0px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 320px;
+      background: #ffffff;
+      padding-top: 0px;
+      background-color: #ffffff;
+    }
+
+    .inapp-content-container {
+      padding: 48px 16px 16px 16px;
+    }
+
+    .hero {
+      margin: auto;
+      width: 100%;
+      height: 260px;
+      background-color: #ffffff;
+      /* Change the IMAGE of your inapp here */
+      background-image: url("{{imageLink}}");
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 16px 16px 0 0;
+      background-size: contain;
+      position: relative;
+    }
+
+    .header {
+      padding: 32px 16px 0px 16px; /* height space image and title */
+      width: 100%;
+    }
+
+    .header span {
+      font-family: wallie-chuncky, Arial, Sans-Serif;
+      font-size: 24px;
+      line-height: 30px;
+      color: #253238;
+    }
+
+    .message {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .message span {
+      font-family: wallie-fit, Arial, Sans-Serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #607d8b;
+      width: 100%;
+    }
+
+    .button-container-main {
+      border-radius: 0 0 6px 6px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0px 0px 0px 0px;
+      margin: 8px 0px 0px 0px;
+      background-color: #ffffff;
+    }
+
+    .button-container-secondary {
+      border-radius: 0 0 6px 6px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0px 0px 0px 0px;
+      margin: 32px 0px 8px 0px;
+      background-color: #ffffff;
+    }
+
+    .button-main {
+      width: 100%;
+      height: 100%;
+      background-color: #13c1ac;
+      align-items: center;
+      display: flex;
+      border-radius: 32px;
+    }
+    .button-main p {
+      font-family: wallie-chuncky, Arial, Sans-Serif;
+      margin: auto;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .button-secondary {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      align-items: center;
+      display: flex;
+      border-radius: 32px;
+      border: 2px solid #cfd8dc;
+    }
+
+    .button-secondary p {
+      font-family: wallie-chuncky, Arial, Sans-Serif;
+      margin: auto;
+      color: #13c1ac;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .Cross-button--icon {
+      display: inline-block;
+      align-items: center;
+      display: flex;
+      height: 28px;
+      justify-content: center;
+      width: 28px;
+      border-radius: 50%;
+      margin: 12px;
+    }
+    .Cross-button--icon svg {
+      fill: #253238;
+      stroke: #253238;
+      width: 16px;
+      height: 16px;
+    }
+    .cross {
+      display: flex;
+      justify-content: flex-end;
+      left: 0;
+      position: absolute;
+      right: 1px;
+      text-align: right;
+      top: 1px;
+    }
+    /* Small phones like iPhone SE */
+    @media only screen and (max-height: 570px) {
+      .header {
+        padding: 16px 16px 0px 16px; /* height space image and title */
+      }
+      .button-container-main {
+        margin: 8px 0px 0px 0px;
+      }
+      .button-container-secondary {
+        margin: 16px 0px 8px 0px;
+        height: 40px;
+      }
+      .header span {
+        font-size: 20px;
+      }
+      .message span {
+        font-size: 13px;
+      }
+      .button-main p {
+        font-size: 13px;
+      }
+      .button-secondary p {
+        font-size: 13px;
+      }
+      .inapp-content-container {
+        padding: 40px 8px 8px 8px;
+      }
+      .button-container-main {
+        height: 40px;
+      }
+      .hero {
+        height: 240px;
+      }
+    }
+    /* iPhone 6 6s 7 8  */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .button-container-main {
+        margin-bottom: 0px;
+      }
+    }
+    /* Big phones like iPhone 8 plus */
+    @media only screen and (min-height: 690px) and (max-height: 779px) {
+      .message {
+        font-size: 0.95em;
+        line-height: 1.2em;
+      }
+    }
+    /* Very big phones like iPhone X */
+    @media only screen and (min-height: 780px) {
+      .header span {
+        font-size: 24px;
+      }
+      .message span {
+        font-size: 18px;
+      }
+      .button-main p {
+        font-size: 18px;
+      }
+      .button-secondary p {
+        font-size: 18px;
+      }
+    }
+
+    /* Like Galaxy Fold size */
+    @media only screen and (max-device-width: 374px) and (max-height: 740px) {
+      .hero {
+        height: 220px;
+      }
+      .header {
+        padding: 16px 16px 0px 16px; /* height space image and title */
+      }
+      .header span {
+        font-size: 16px;
+      }
+      .message span {
+        font-size: 14px;
+      }
+      .button-main p {
+        font-size: 14px;
+      }
+      .button-secondary p {
+        font-size: 14px;
+      }
+      .button-container-secondary {
+        margin: 16px 0px 8px 0px;
+        height: 34px;
+      }
+      .inapp-content-container {
+        padding: 40px 8px 8px 8px;
+      }
+      .button-container-main {
+        height: 34px;
+      }
+    }
+    /* Like iPhone 4 size */
+    @media only screen and (max-height: 480px) {
+      .hero {
+        height: 220px;
+      }
+      .header {
+        padding: 8px 8px 0px 8px; /* height space image and title */
+      }
+      .header span {
+        font-size: 18px;
+      }
+      .message {
+        margin-top: 8px;
+      }
+      .message span {
+        font-size: 14px;
+      }
+      .button-main p {
+        font-size: 14px;
+      }
+      .button-secondary p {
+        font-size: 14px;
+      }
+      .button-container-secondary {
+        margin: 8px 0px 8px 0px;
+        height: 34px;
+      }
+      .inapp-content-container {
+        padding: 40px 8px 8px 8px;
+      }
+      .button-container-main {
+        height: 34px;
+      }
+    }
+  </style>
+  <body>
+    <div class="outer">
+      <div class="modal">
+        <div class="inapp-content-container">
+          <div class="cross">
+            <a
+              class="Cross-button--icon"
+              href="appboy://close"
+              onclick="appboyBridge.closeMessage()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+              >
+                <path
+                  d="M5179.55,608l-2.5,2.512,17.51,17.536-17.43,17.44,2.5,2.512,17.43-17.456L5214.48,648l2.5-2.512-17.43-17.44,17.51-17.536-2.5-2.512-17.5,17.536Z"
+                  transform="translate(-5177.06 -608)"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="hero"></div>
+          <div class="header">
+            <!-- Change the TITLE of your inapp here -->
+            <span>{{templateTitle}}</span>
+          </div>
+          <div class="message">
+            <!-- Change the TEXT of your inapp here -->
+            <span>{{description}}</span>
+          </div>
+          <footer>
+            <!-- Change the DEEPLINK of your inapp here. Replace appboy://close by your link. Leave ?abButtonId=1 for click tracking -->
+            <a href="{{deeplink2}}?abButtonId=1" onclick="{{deeplink2Toggle}}">
+              <div class="button-container-secondary">
+                <div class="button-secondary">
+                  <!-- Change the CTA of your inapp here -->
+                  <p>{{cta2}}</p>
+                </div>
+              </div>
+            </a>
+
+            <!-- Change the DEEPLINK of your inapp here. Replace appboy://close by your link. Leave ?abButtonId=0 for click tracking -->
+            <a href="{{deeplink1}}?abButtonId=0" onclick="{{deeplink1Toggle}}">
+              <div class="button-container-main">
+                <div class="button-main">
+                  <!-- Change the CTA of your inapp here -->
+                  <p>{{cta1}}</p>
+                </div>
+              </div>
+            </a>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
